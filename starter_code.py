@@ -53,13 +53,15 @@ def find_missing_days(days_list: list[int]) -> list[int]:
 
     absent_days = []
 
-    for values in logged_days:
-        missing_day = values =+ 1
-        if missing_day != values:
-            absent_days.append(missing_day)
-        print(absent_days)
-    
-            
+    full_days = range(logged_days[0],logged_days[-1]+1)
+    log_day_set = set(logged_days)
+
+    for values in full_days:
+        if values not in log_day_set:
+            absent_days.append(values)
+    print(absent_days)
+
+
     pass
 
 
